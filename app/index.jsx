@@ -1,13 +1,26 @@
 import { Link, Slot } from "expo-router";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, ScrollView, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+import { images } from "../constants";
 
 export default function App() {
   return (
-    <View className="flex-[1] items-center justify-center bg-white pt-8">
-      <Text className="text-rose-300 text-4xl font-pblack">Aora</Text>
-      <StatusBar style="auto" />
-      <Link href='/home'>Go to home page</Link>
-    </View>
+    <SafeAreaView className="bg-primary h-full">
+      <ScrollView contentContainerStyle={{ height: "100%" }}>
+        <View className="w-full justify-center items-center h-full px-4">
+          <Image
+            className="w-[130px] h-[84px]"
+            source={images.logo}
+            resizeMode="contain"
+          />
+          <Image
+            className="max-w-[380px] w-full h-[300px]"
+            source={images.cards}
+            resizeMode="contain"
+          />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
